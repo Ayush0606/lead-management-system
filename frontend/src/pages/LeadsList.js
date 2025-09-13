@@ -41,20 +41,24 @@ export default function LeadsList() {
 
   return (
     <Box>
-      <Typography variant="h4" gutterBottom>Leads</Typography>
-      <Stack direction="row" spacing={2} mb={2}>
-        <Button variant="contained" color="primary" onClick={() => navigate('/leads/new')}>Add Lead</Button>
+      <Typography variant="h4" gutterBottom sx={{ fontSize: { xs: '1.5rem', sm: '2rem', md: '2.5rem' } }}>
+        Leads
+      </Typography>
+      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} mb={2}>
+        <Button variant="contained" color="primary" onClick={() => navigate('/leads/new')} fullWidth={{ xs: true, sm: false }}>
+          Add Lead
+        </Button>
       </Stack>
-      <Paper sx={{ p: 2, mb: 2 }}>
-        <Stack direction="row" spacing={2}>
-          <TextField name="email" label="Email" onChange={onFilterChange} variant="outlined" size="small" />
-          <TextField name="company" label="Company" onChange={onFilterChange} variant="outlined" size="small" />
-          <TextField name="city" label="City" onChange={onFilterChange} variant="outlined" size="small" />
+      <Paper sx={{ p: { xs: 1, sm: 2 }, mb: 2 }}>
+        <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+          <TextField name="email" label="Email" onChange={onFilterChange} variant="outlined" size="small" fullWidth />
+          <TextField name="company" label="Company" onChange={onFilterChange} variant="outlined" size="small" fullWidth />
+          <TextField name="city" label="City" onChange={onFilterChange} variant="outlined" size="small" fullWidth />
           {/* Add more filters as needed */}
         </Stack>
       </Paper>
-      <Paper sx={{ p: 2, mb: 2 }}>
-        <div className="ag-theme-alpine" style={{ height: 400, width: '100%' }}>
+      <Paper sx={{ p: { xs: 1, sm: 2 }, mb: 2, overflow: 'auto' }}>
+        <div className="ag-theme-alpine" style={{ height: 400, width: '100%', minWidth: '600px' }}>
           <AgGridReact
             rowData={rowData}
             columnDefs={[
@@ -92,10 +96,26 @@ export default function LeadsList() {
           />
         </div>
       </Paper>
-      <Stack direction="row" spacing={2} alignItems="center">
-        <Typography>Page: {pagination.page} / {pagination.totalPages}</Typography>
-        <Button disabled={pagination.page <= 1} onClick={() => onPageChange(pagination.page - 1)}>Prev</Button>
-        <Button disabled={pagination.page >= pagination.totalPages} onClick={() => onPageChange(pagination.page + 1)}>Next</Button>
+      <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} alignItems="center" justifyContent="center">
+        <Typography variant="body2" sx={{ fontSize: { xs: '0.875rem', sm: '1rem' } }}>
+          Page: {pagination.page} / {pagination.totalPages}
+        </Typography>
+        <Stack direction="row" spacing={1}>
+          <Button 
+            disabled={pagination.page <= 1} 
+            onClick={() => onPageChange(pagination.page - 1)}
+            size="small"
+          >
+            Prev
+          </Button>
+          <Button 
+            disabled={pagination.page >= pagination.totalPages} 
+            onClick={() => onPageChange(pagination.page + 1)}
+            size="small"
+          >
+            Next
+          </Button>
+        </Stack>
       </Stack>
     </Box>
   );

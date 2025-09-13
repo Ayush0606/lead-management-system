@@ -19,8 +19,27 @@ function App() {
       <CssBaseline />
       <Router>
         <MyAppBar />
-        <Container maxWidth="md" sx={{ mt: 4 }}>
-          <IconButton sx={{ float: 'right', mb: 2 }} onClick={() => setMode(m => m === 'light' ? 'dark' : 'light')} color="inherit">
+        <Container 
+          maxWidth="lg" 
+          sx={{ 
+            mt: { xs: 2, sm: 4 }, 
+            px: { xs: 1, sm: 2, md: 3 }
+          }}
+        >
+          <IconButton 
+            sx={{ 
+              float: 'right', 
+              mb: 2,
+              position: { xs: 'fixed', sm: 'static' },
+              top: { xs: 70, sm: 'auto' },
+              right: { xs: 10, sm: 'auto' },
+              zIndex: 1000,
+              bgcolor: { xs: 'background.paper', sm: 'transparent' },
+              boxShadow: { xs: 2, sm: 0 }
+            }} 
+            onClick={() => setMode(m => m === 'light' ? 'dark' : 'light')} 
+            color="inherit"
+          >
             {mode === 'light' ? <Brightness4Icon /> : <Brightness7Icon />}
           </IconButton>
           <Routes>

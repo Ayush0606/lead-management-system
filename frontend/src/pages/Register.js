@@ -30,10 +30,26 @@ export default function Register() {
   }
 
   return (
-    <Box display="flex" justifyContent="center" alignItems="center" minHeight="60vh">
-      <Card sx={{ minWidth: 350, p: 2 }}>
+    <Box 
+      display="flex" 
+      justifyContent="center" 
+      alignItems="center" 
+      minHeight="60vh"
+      px={{ xs: 1, sm: 2 }}
+    >
+      <Card sx={{ 
+        width: '100%', 
+        maxWidth: { xs: '100%', sm: 350, md: 400 }, 
+        p: { xs: 1, sm: 2 } 
+      }}>
         <CardContent>
-          <Typography variant="h5" gutterBottom>Register</Typography>
+          <Typography 
+            variant="h5" 
+            gutterBottom
+            sx={{ fontSize: { xs: '1.25rem', sm: '1.5rem' }, textAlign: 'center' }}
+          >
+            Register
+          </Typography>
           <Box component="form" onSubmit={handleSubmit}>
             <TextField
               label="Email"

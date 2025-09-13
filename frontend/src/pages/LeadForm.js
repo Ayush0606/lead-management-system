@@ -50,10 +50,26 @@ export default function LeadForm() {
   }
 
   return (
-    <Box display="flex" justifyContent="center" alignItems="center" minHeight="60vh">
-      <Card sx={{ minWidth: 400, p: 2 }}>
+    <Box 
+      display="flex" 
+      justifyContent="center" 
+      alignItems="center" 
+      minHeight="60vh"
+      px={{ xs: 1, sm: 2 }}
+    >
+      <Card sx={{ 
+        width: '100%', 
+        maxWidth: { xs: '100%', sm: 400, md: 500 }, 
+        p: { xs: 1, sm: 2 } 
+      }}>
         <CardContent>
-          <Typography variant="h5" gutterBottom>{id ? 'Edit Lead' : 'Create Lead'}</Typography>
+          <Typography 
+            variant="h5" 
+            gutterBottom
+            sx={{ fontSize: { xs: '1.25rem', sm: '1.5rem' } }}
+          >
+            {id ? 'Edit Lead' : 'Create Lead'}
+          </Typography>
           <Box component="form" onSubmit={handleSubmit}>
             <Stack spacing={2}>
               <TextField name="first_name" label="First Name" value={lead.first_name} onChange={handleChange} required fullWidth />
