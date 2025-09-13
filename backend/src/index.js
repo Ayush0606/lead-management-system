@@ -10,7 +10,7 @@ app.use(cookieParser());
 app.use(cors({
   origin: [
     'http://localhost:3000', 
-    'https://lead-management-system-gafrgv2fi-ayushs-projects-eea00760.vercel.app'
+    'https://lead-management-system-sigma.vercel.app'
   ],
   credentials: true
 }));
