@@ -6,7 +6,7 @@ import { Box, Button, TextField, Typography, Paper, Stack } from '@mui/material'
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
 
 export default function LeadsList() {
