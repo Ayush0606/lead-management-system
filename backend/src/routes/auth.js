@@ -17,7 +17,7 @@ router.post('/register', async (req, res) => {
   if (existing) return res.status(409).json({ error: 'Email already exists' });
   const user = await createUser({ email, password });
   const token = generateToken(user);
-  res.cookie('token', token, { httpOnly: true, sameSite: 'lax' });
+  res.cookie('token', token, { httpOnly: true, sameSite: 'none', secure: true });
   res.status(201).json({ user });
 });
 
@@ -28,7 +28,7 @@ router.post('/login', async (req, res) => {
   const match = await bcrypt.compare(password, user.password);
   if (!match) return res.status(401).json({ error: 'Invalid credentials' });
   const token = generateToken(user);
-  res.cookie('token', token, { httpOnly: true, sameSite: 'lax' });
+  res.cookie('token', token, { httpOnly: true, sameSite: 'none', secure: true });
   res.json({ user: { id: user.id, email: user.email } });
 });
 

@@ -12,7 +12,8 @@ app.use(cors({
     'http://localhost:3000', 
     'https://lead-management-system-sigma.vercel.app'
   ],
-  credentials: true
+  credentials: true,
+  optionsSuccessStatus: 200
 }));
 
 

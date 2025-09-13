@@ -20,6 +20,7 @@ export default function Register() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password })
     });
+    console.log("Registration successful");
     if (res.ok) {
       navigate('/leads');
     } else {
