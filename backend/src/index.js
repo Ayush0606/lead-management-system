@@ -8,7 +8,10 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: [
+    'http://localhost:3000', 
+    'https://lead-management-system-gafrgv2fi-ayushs-projects-eea00760.vercel.app'
+  ],
   credentials: true
 }));
 
